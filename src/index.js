@@ -1,6 +1,6 @@
 export default {
 	async fetch(request, env) {
-		const telegramUrl = `https://api.telegram.org/bot${env.TOKEN}/sendMessage`;
+		const tgUrl = `https://api.telegram.org/bot${env.TOKEN}`;
 
 		// Set HTTP Headers
 		const headers = {
@@ -14,7 +14,7 @@ export default {
 		const text = body.message.text;
 
 		// Send Message to Telegram
-		const response = await fetch(telegramUrl, {
+		const response = await fetch(`${tgUrl}/sendMessage`, {
 			method: 'POST',
 			headers: headers,
 			body: JSON.stringify({
